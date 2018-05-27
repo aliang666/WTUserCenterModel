@@ -8,4 +8,5 @@
 
 #ifndef WTEmptyProject_pch
 #define WTEmptyProject_pch
+#import <WTBaseCore/WTBaseCore.h>
 #endif

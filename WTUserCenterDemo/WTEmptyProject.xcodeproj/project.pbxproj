@@ -10,9 +10,12 @@
 		5084EB2620BA923C00486ED9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5084EB2520BA923C00486ED9 /* AppDelegate.m */; };
 		5084EB2E20BA923C00486ED9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5084EB2D20BA923C00486ED9 /* Assets.xcassets */; };
 		5084EB3420BA923C00486ED9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5084EB3320BA923C00486ED9 /* main.m */; };
+		E9D1F3520A9E02345F4D1ED0 /* libPods-WTEmptyProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E543B75B7B397516603D2502 /* libPods-WTEmptyProject.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		436E072526DFD6DEEF3C0F4E /* Pods-WTEmptyProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WTEmptyProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WTEmptyProject/Pods-WTEmptyProject.debug.xcconfig"; sourceTree = "<group>"; };
+		4BF9E05B46FCC8610C1C945C /* Pods-WTEmptyProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WTEmptyProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-WTEmptyProject/Pods-WTEmptyProject.release.xcconfig"; sourceTree = "<group>"; };
 		5084EB2120BA923C00486ED9 /* WTEmptyProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WTEmptyProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5084EB2420BA923C00486ED9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5084EB2520BA923C00486ED9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -20,6 +23,7 @@
 		5084EB3220BA923C00486ED9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5084EB3320BA923C00486ED9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5084EB3F20BA97C200486ED9 /* WTEmptyProject.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTEmptyProject.pch; sourceTree = "<group>"; };
+		E543B75B7B397516603D2502 /* libPods-WTEmptyProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WTEmptyProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9D1F3520A9E02345F4D1ED0 /* libPods-WTEmptyProject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +43,8 @@
 			children = (
 				5084EB2320BA923C00486ED9 /* WTEmptyProject */,
 				5084EB2220BA923C00486ED9 /* Products */,
+				A0C0EC5EEF2DA6004EB07E6E /* Pods */,
+				A663DBE0CE39392AD1DAEE0A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +69,23 @@
 			path = WTEmptyProject;
 			sourceTree = "<group>";
 		};
+		A0C0EC5EEF2DA6004EB07E6E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				436E072526DFD6DEEF3C0F4E /* Pods-WTEmptyProject.debug.xcconfig */,
+				4BF9E05B46FCC8610C1C945C /* Pods-WTEmptyProject.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A663DBE0CE39392AD1DAEE0A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E543B75B7B397516603D2502 /* libPods-WTEmptyProject.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -69,9 +93,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5084EB3720BA923C00486ED9 /* Build configuration list for PBXNativeTarget "WTEmptyProject" */;
 			buildPhases = (
+				688A5CB2133119D18A6C8309 /* [CP] Check Pods Manifest.lock */,
 				5084EB1D20BA923C00486ED9 /* Sources */,
 				5084EB1E20BA923C00486ED9 /* Frameworks */,
 				5084EB1F20BA923C00486ED9 /* Resources */,
+				E6A82D6FAE75E3EBB6E59EAE /* [CP] Embed Pods Frameworks */,
+				7946FA65EC021919EC71BC55 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -125,6 +152,62 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		688A5CB2133119D18A6C8309 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WTEmptyProject-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7946FA65EC021919EC71BC55 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-WTEmptyProject/Pods-WTEmptyProject-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_ROOT}/WTBaseCore/WTBaseCore/CoreRes/WTBaseCore.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WTBaseCore.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WTEmptyProject/Pods-WTEmptyProject-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E6A82D6FAE75E3EBB6E59EAE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WTEmptyProject/Pods-WTEmptyProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5084EB1D20BA923C00486ED9 /* Sources */ = {
@@ -245,6 +328,7 @@
 		};
 		5084EB3820BA923C00486ED9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 436E072526DFD6DEEF3C0F4E /* Pods-WTEmptyProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -262,6 +346,7 @@
 		};
 		5084EB3920BA923C00486ED9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4BF9E05B46FCC8610C1C945C /* Pods-WTEmptyProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

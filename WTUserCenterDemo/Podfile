@@ -1,0 +1,10 @@
+platform :ios,'8.0'
+inhibit_all_warnings!
+
+target "WTEmptyProject" do
+    pod 'WTBaseCore', :git => "https://github.com/aliang666/WTBaseCore.git"
+    pod 'WTBusinessData', :git => "https://github.com/aliang666/WTBusinessData.git"
+    pod 'WTLoginModel', :git => "https://github.com/aliang666/WTLoginModel.git"
+    #pod 'WTBaseCore', :git => "https://github.com/aliang666/WTBaseCore.git" , :tag => "0.0.1"
+end
+
