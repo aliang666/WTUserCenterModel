@@ -8,6 +8,6 @@
 
 #import "WTBaseCore.h"
 
-@interface WTABountViewController : WTViewController
+@interface WTABountViewController : WTFormViewController
 
 @end

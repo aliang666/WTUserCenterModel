@@ -7,6 +7,8 @@
 //
 
 #import "WTABountViewController.h"
+#import "WTLanguageCell.h"
+#import "WTABoutHeadCell.h"
 
 @interface WTABountViewController ()
 
@@ -16,5 +18,42 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.formManager[@"WTLanguageItem"] = @"WTLanguageCell";
+    self.formManager[@"WTABoutHeadItem"] = @"WTABoutHeadCell";
+    [self setControllerTitle];
+    [self initFrom];
+    
 }
+
+- (void)setControllerTitle {
+    self.navBar.title = [[WTLanguageUtil shareInstance] valueForKey:@"my_main_about"];
+}
+
+- (void)initFrom {
+    WT(bself);
+    NSMutableArray *sectionArray = [NSMutableArray array];
+    RETableViewSection *section0 = [RETableViewSection section];
+    
+    [section0 addItem:[[WTABoutHeadItem alloc] init]];
+
+    //意见反馈
+    WTLanguageItem *itLan = [[WTLanguageItem alloc] init];
+    itLan.title = [WTUtil strRelay:[[WTLanguageUtil shareInstance] valueForKey:@"my_about_feedback"]];
+    itLan.hasArrow = YES;
+    itLan.selectionHandler = ^(id item) {
+    };
+    [section0 addItem:itLan];
+    //售后服务
+    WTLanguageItem *itService = [[WTLanguageItem alloc] init];
+    itService.title = [WTUtil strRelay:[[WTLanguageUtil shareInstance] valueForKey:@"my_trans_machine_after_service"]];
+    itService.hasArrow = YES;
+    itService.selectionHandler = ^(id item) {
+    };
+    [section0 addItem:itService];
+    
+    [sectionArray addObject:section0];
+    [self.formManager replaceSectionsWithSectionsFromArray:sectionArray];
+    [self.formTable reloadData];
+}
+
 @end
