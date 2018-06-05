@@ -16,6 +16,5 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navBar.hidden = YES;
 }
 @end

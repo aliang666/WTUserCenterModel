@@ -10,6 +10,10 @@
 #import "WTProfileCell.h"
 #import "WTLoginInfo.h"
 #import "WTLanguageCell.h"
+#import "WTUserInfoViewController.h"
+#import "WTLanguageViewController.h"
+#import "WTFuncViewController.h"
+#import "WTABountViewController.h"
 
 @interface WTUserCenterViewController ()
 
@@ -45,6 +49,8 @@
     itHeader.email = [WTUtil strRelay:[WTLoginInfo shareInstance].user.email];
     itHeader.notice = [[WTLanguageUtil shareInstance] valueForKey:@"tab_my_notice"];
     itHeader.selectionHandler = ^(id item) {
+        WTUserInfoViewController *info = [[WTUserInfoViewController alloc] init];
+        [bself.navigationController pushViewController:info animated:YES];
     };
     [section0 addItem:itHeader];
     
@@ -55,6 +61,10 @@
     itGN.title = [WTUtil strRelay:[[WTLanguageUtil shareInstance] valueForKey:@"my_main_play_set"]];
     itGN.hasArrow = YES;
     itGN.image = [UIImage imageNamed:@"profile_setting"];
+    itGN.selectionHandler = ^(id item) {
+        WTFuncViewController *info = [[WTFuncViewController alloc] init];
+        [bself.navigationController pushViewController:info animated:YES];
+    };
     [section0 addItem:itGN];
     
     //语言设置
@@ -62,6 +72,10 @@
     itLan.title = [WTUtil strRelay:[[WTLanguageUtil shareInstance] valueForKey:@"my_main_language"]];
     itLan.hasArrow = YES;
     itLan.image = [UIImage imageNamed:@"profile_lag"];
+    itLan.selectionHandler = ^(id item) {
+        WTLanguageViewController *info = [[WTLanguageViewController alloc] init];
+        [bself.navigationController pushViewController:info animated:YES];
+    };
     [section0 addItem:itLan];
     
     [section0 addItem:[WTEmptyItem initWithHeight:30]];
@@ -71,6 +85,10 @@
     itABout.title = [WTUtil strRelay:[[WTLanguageUtil shareInstance] valueForKey:@"my_main_about"]];
     itABout.hasArrow = YES;
     itABout.image = [UIImage imageNamed:@"profile_about"];
+    itABout.selectionHandler = ^(id item) {
+        WTABountViewController *info = [[WTABountViewController alloc] init];
+        [bself.navigationController pushViewController:info animated:YES];
+    };
     [section0 addItem:itABout];
         
     [sectionArray addObject:section0];
