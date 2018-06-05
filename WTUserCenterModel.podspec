@@ -31,4 +31,7 @@ Pod::Spec.new do |s|
     ss.source_files = 'WTUserCenterModel/Func/**/*.{h,m,c,mm}'
   end
 
+  s.subspec 'Cell' do |ss|
+    ss.source_files = 'WTUserCenterModel/Cell/**/*.{h,m,c,mm}'
+  end
 end
