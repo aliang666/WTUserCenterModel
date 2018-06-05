@@ -31,6 +31,8 @@
     NSMutableArray *sectionArray = [NSMutableArray array];
     RETableViewSection *section0 = [RETableViewSection section];
     
+    [section0 addItem:[WTEmptyItem initWithHeight:30]];
+    
     [sectionArray addObject:section0];
     [self.formManager replaceSectionsWithSectionsFromArray:sectionArray];
     [self.formTable reloadData];
