@@ -8,7 +8,9 @@
 #import "WTProfileCell.h"
 #import "WTDefine.h"
 #import "WTUtil.h"
-#import "IFXY-Swift.h"
+#import "UIView+Category.h"
+#import "WTLoginInfo.h"
+
 @implementation WTProfileItem
 - (id)init{
     if (self = [super init]) {
@@ -41,16 +43,16 @@
      [self.contentView addSubview:imgView];
      
      nickNameLab = [[UILabel alloc] initWithFrame:CGRectMake(imgView.right+12, imgView.top+7, WTScreenWidth-imgView.right-12-22, 20)];
-     nickNameLab.textColor = WT_APPColor_TextColor;
+     nickNameLab.textColor = WTColorHex(0x333333);
      [self.contentView addSubview:nickNameLab];
      
      phoneNumLab = [[UILabel alloc] initWithFrame:CGRectMake(nickNameLab.left, nickNameLab.bottom+6, nickNameLab.width, 20)];
-     phoneNumLab.textColor = WT_APPColor_TextColor;
+     phoneNumLab.textColor = WTColorHex(0x333333);
      [self.contentView addSubview:phoneNumLab];
      
      noticeLab = [[UILabel alloc] initWithFrame:phoneNumLab.frame];
      noticeLab.font = WTFontSys(15);
-     noticeLab.textColor = WT_APPColor_TextGrayColor;
+     noticeLab.textColor = WTColorHex(0x666666);
      [self.contentView addSubview:noticeLab];
 }
 
@@ -73,7 +75,7 @@
           phoneNumLab.text = [WTUtil strRelay:self.item.email];
      }
      noticeLab.hidden = YES;
-     if ([UserAccountTool shareIntance].isThird) {
+     if ([WTLoginInfo  isThird]) {
           noticeLab.hidden = NO;
      }
      noticeLab.text = [WTUtil strRelay:self.item.notice];
