@@ -7,7 +7,9 @@
 //
 #import "WTABoutHeadCell.h"
 #import "WTDefine.h"
-#import "UIView+Additions.h"
+#import "UIView+Category.h"
+#import "WTLanguageUtil.h"
+#import "WTUtil.h"
 
 @implementation WTABoutHeadItem
 - (id)init{
@@ -42,14 +44,14 @@
      
      appNameLab = [[UILabel alloc] initWithFrame:CGRectMake(20, iconImg.bottom+15, WTScreenWidth-20-20, 15)];
      appNameLab.font = WTFontSys(15);
-     appNameLab.textColor = WT_APPColor_TextColor;
+     appNameLab.textColor = WT_Color_TextBlackColor;
      appNameLab.textAlignment = NSTextAlignmentCenter;
-     appNameLab.text = [[WTLanguageUtil shareInstance] valueWithKeyWithKey:@"app_name_sure"];
+     appNameLab.text = [[WTLanguageUtil shareInstance] valueForKey:@"app_name_sure"];
      [self.contentView addSubview:appNameLab];
      
      appVersionLab = [[UILabel alloc] initWithFrame:CGRectMake(20, appNameLab.bottom+5, WTScreenWidth-20-20, 15)];
      appVersionLab.font = WTFontSys(15);
-     appVersionLab.textColor = WT_APPColor_TextColor;
+     appVersionLab.textColor = WT_Color_TextBlackColor;
      appVersionLab.textAlignment = NSTextAlignmentCenter;
      appVersionLab.text = [WTUtil strRelay:[[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"]];
      [self.contentView addSubview:appVersionLab];
