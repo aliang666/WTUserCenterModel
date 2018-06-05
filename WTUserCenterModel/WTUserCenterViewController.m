@@ -16,6 +16,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navBar.hidden = YES;
+    self.navBar.leftItemList = [NSArray array];
+    
+    [self setControllerTitle];
+    [self initFrom];
+}
+
+- (void)setControllerTitle {
+    self.navBar.title = [[WTLanguageUtil shareInstance] valueForKey:@"user_title"];
+}
+
+- (void)initFrom {
+    WT(bself);
+    NSMutableArray *sectionArray = [NSMutableArray array];
+    RETableViewSection *section0 = [RETableViewSection section];
+    
+    [sectionArray addObject:section0];
+    [self.formManager replaceSectionsWithSectionsFromArray:sectionArray];
+    [self.formTable reloadData];
 }
 @end
