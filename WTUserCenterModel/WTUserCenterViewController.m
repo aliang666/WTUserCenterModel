@@ -56,6 +56,22 @@
     itGN.hasArrow = YES;
     itGN.image = [UIImage imageNamed:@"profile_setting"];
     [section0 addItem:itGN];
+    
+    //语言设置
+    WTLanguageItem *itLan = [[WTLanguageItem alloc] init];
+    itLan.title = [WTUtil strRelay:[[WTLanguageUtil shareInstance] valueForKey:@"my_main_language"]];
+    itLan.hasArrow = YES;
+    itLan.image = [UIImage imageNamed:@"profile_lag"];
+    [section0 addItem:itLan];
+    
+    [section0 addItem:[WTEmptyItem initWithHeight:30]];
+    
+    //关于我们
+    WTLanguageItem *itABout = [[WTLanguageItem alloc] init];
+    itABout.title = [WTUtil strRelay:[[WTLanguageUtil shareInstance] valueForKey:@"my_main_about"]];
+    itABout.hasArrow = YES;
+    itABout.image = [UIImage imageNamed:@"profile_about"];
+    [section0 addItem:itABout];
         
     [sectionArray addObject:section0];
     [self.formManager replaceSectionsWithSectionsFromArray:sectionArray];
