@@ -9,6 +9,8 @@
 #import "WTUserCenterViewController.h"
 #import "WTProfileCell.h"
 #import "WTLoginInfo.h"
+#import "WTLanguageCell.h"
+
 @interface WTUserCenterViewController ()
 
 @end
@@ -19,6 +21,7 @@
     [super viewDidLoad];
     self.navBar.leftItemList = [NSArray array];
     self.formManager[@"WTProfileItem"] = @"WTProfileCell";
+    self.formManager[@"WTLanguageItem"] = @"WTLanguageCell";
     [self setControllerTitle];
     [self initFrom];
 }
@@ -47,6 +50,13 @@
     
     [section0 addItem:[WTEmptyItem initWithHeight:30]];
     
+    //功能设置
+    WTLanguageItem *itGN = [[WTLanguageItem alloc] init];
+    itGN.title = [WTUtil strRelay:[[WTLanguageUtil shareInstance] valueForKey:@"my_main_play_set"]];
+    itGN.hasArrow = YES;
+    itGN.image = [UIImage imageNamed:@"profile_setting"];
+    [section0 addItem:itGN];
+        
     [sectionArray addObject:section0];
     [self.formManager replaceSectionsWithSectionsFromArray:sectionArray];
     [self.formTable reloadData];
