@@ -55,6 +55,12 @@
     itService.title = [WTUtil strRelay:[[WTLanguageUtil shareInstance] valueForKey:@"my_trans_machine_after_service"]];
     itService.hasArrow = YES;
     itService.selectionHandler = ^(id item) {
+        NSString *path = @"H5Pages/translate-app/after-sale-service.html";
+        if ([[WTLanguageUtil shareInstance] getCurrentAppLanguage]==WTAppLanguage_EN) {
+            path = @"H5Pages/translate-app/after-sale-service-en.html";
+        }
+        NSString *titleT = [[WTLanguageUtil shareInstance] valueForKey:@"xy_afterSale"];
+        [[WTMediator shareInstance] pushToWebViewController:path title:titleT];
     };
     [section0 addItem:itService];
     
