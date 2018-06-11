@@ -8,6 +8,6 @@
 
 #import "WTBaseCore.h"
 
-@interface WTUserInfoViewController : WTViewController
+@interface WTUserInfoViewController : WTFormViewController
 
 @end
