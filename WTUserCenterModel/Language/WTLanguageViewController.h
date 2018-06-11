@@ -8,6 +8,6 @@
 
 #import "WTBaseCore.h"
 
-@interface WTLanguageViewController : WTViewController
+@interface WTLanguageViewController : WTFormViewController
 
 @end
