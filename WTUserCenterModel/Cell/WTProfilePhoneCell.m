@@ -6,11 +6,8 @@
 //  Copyright © 2017年 IFly. All rights reserved.
 //
 #import "WTProfilePhoneCell.h"
-#import "WTDefine.h"
-#import "WTUtil.h"
-#import "UIView+Additions.h"
-#import "IFXY-Swift.h"
-#import "WTEnum.h"
+#import "WTBaseCore.h"
+
 @implementation WTProfilePhoneItem
 - (id)init{
     if (self = [super init]) {
@@ -41,7 +38,7 @@
      
      titleLab1 = [[UILabel alloc] initWithFrame:CGRectMake(iconImg.right+15, iconImg.top, 80, iconImg.height)];
      titleLab1.font = WTFontSys(16);
-     titleLab1.textColor = WT_APPColor_TextColor;
+     titleLab1.textColor = WT_Color_TextBlackColor;
      [self.contentView addSubview:titleLab1];
      
      titleLab2 = [[UILabel alloc] initWithFrame:CGRectMake(iconImg.right+15, iconImg.top, WTScreenWidth-iconImg.right-15-22, iconImg.height)];
@@ -63,9 +60,8 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-     NSString *languege = [[WTLanguageUtil shareInstance] getCurrentLanguage];
      titleLab1.width = 50;
-     if ([languege isEqualToString:WT_Language_English]) {
+     if ([[WTLanguageUtil shareInstance] getCurrentAppLanguage]==WTAppLanguage_EN) {
           titleLab1.width = 80;
      }
      titleLab2.left = titleLab1.right+5;

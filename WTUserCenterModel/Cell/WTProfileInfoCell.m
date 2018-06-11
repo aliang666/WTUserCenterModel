@@ -6,9 +6,8 @@
 //  Copyright © 2017年 IFly. All rights reserved.
 //
 #import "WTProfileInfoCell.h"
-#import "WTDefine.h"
-#import "WTUtil.h"
-#import "IFXY-Swift.h"
+#import "WTBaseCore.h"
+#import "WTLoginInfo.h"
 
 @implementation WTProfileInfoItem
 - (id)init{
@@ -33,7 +32,7 @@
 - (void)cellDidLoad
 {
     [super cellDidLoad];
-     self.backgroundColor = WT_APPColor_BlueColor;
+     self.backgroundColor = WT_Color_BlueColor;
      imgView = [[UIImageView alloc] initWithFrame:CGRectMake((WTScreenWidth-90)/2, 15, 90, 90)];
      imgView.layer.cornerRadius = 3;
      imgView.layer.masksToBounds = YES;
@@ -45,7 +44,7 @@
      [self.contentView addSubview:nickNameLab];
      
      modifyBtn = [[UIButton alloc] initWithFrame:CGRectMake((WTScreenWidth-160)/2, nickNameLab.bottom+15, 160, 30)];
-     [modifyBtn setTitle:[[WTLanguageUtil shareInstance] valueWithKeyWithKey:@"my_info_change_password"] forState:UIControlStateNormal];
+     [modifyBtn setTitle:[[WTLanguageUtil shareInstance] valueForKey:@"my_info_change_password"] forState:UIControlStateNormal];
      modifyBtn.titleLabel.font = WTFontSys(15);
      modifyBtn.layer.cornerRadius = 15;
      modifyBtn.clipsToBounds = YES;
@@ -71,14 +70,9 @@
      nickNameLab.text = [WTUtil strRelay:self.item.nickName];
      
      modifyBtn.hidden = NO;
-     if (UserAccountTool.shareIntance.isThird) {
+     if ([WTLoginInfo isThird]) {
           modifyBtn.hidden = YES;
      }
-}
-
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
 }
 
 - (void)modifyPress {
