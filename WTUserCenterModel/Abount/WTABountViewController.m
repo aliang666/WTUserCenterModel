@@ -9,6 +9,7 @@
 #import "WTABountViewController.h"
 #import "WTLanguageCell.h"
 #import "WTABoutHeadCell.h"
+#import "WTMediator.h"
 
 @interface WTABountViewController ()
 
@@ -41,6 +42,12 @@
     itLan.title = [WTUtil strRelay:[[WTLanguageUtil shareInstance] valueForKey:@"my_about_feedback"]];
     itLan.hasArrow = YES;
     itLan.selectionHandler = ^(id item) {
+        NSString *path = @"H5Pages/translate-app/feedback.html";
+        if ([[WTLanguageUtil shareInstance] getCurrentAppLanguage]==WTAppLanguage_EN) {
+            path = @"H5Pages/translate-app/feedback-en.html";
+        }
+        NSString *titleT = [[WTLanguageUtil shareInstance] valueForKey:@"my_about_feedback"];
+        [[WTMediator shareInstance] pushToWebViewController:path title:titleT];
     };
     [section0 addItem:itLan];
     //售后服务
