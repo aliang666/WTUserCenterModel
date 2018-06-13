@@ -10,6 +10,7 @@
 #import "WTLanguageCell.h"
 #import "WTABoutHeadCell.h"
 #import "WTMediator.h"
+#import "CTMediator+WebViewModel.h"
 
 @interface WTABountViewController ()
 
@@ -47,7 +48,10 @@
             path = @"H5Pages/translate-app/feedback-en.html";
         }
         NSString *titleT = [[WTLanguageUtil shareInstance] valueForKey:@"my_about_feedback"];
-        [[WTMediator shareInstance] pushToWebViewController:path title:titleT];
+        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        [dic setObject:path forKey:@"path"];
+        [dic setObject:titleT forKey:@"title"];
+        [[CTMediator sharedInstance] WebVC_Action:dic];
     };
     [section0 addItem:itLan];
     //售后服务
