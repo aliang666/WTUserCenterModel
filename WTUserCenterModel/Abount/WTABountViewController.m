@@ -64,7 +64,10 @@
             path = @"H5Pages/translate-app/after-sale-service-en.html";
         }
         NSString *titleT = [[WTLanguageUtil shareInstance] valueForKey:@"xy_afterSale"];
-        [[WTMediator shareInstance] pushToWebViewController:path title:titleT];
+        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        [dic setObject:path forKey:@"path"];
+        [dic setObject:titleT forKey:@"title"];
+        [[CTMediator sharedInstance] WebVC_Action:dic];
     };
     [section0 addItem:itService];
     
