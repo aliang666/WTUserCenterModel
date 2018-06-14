@@ -12,9 +12,15 @@
 #import "WTProfileInfoCell.h"
 #import "WTProfilePhoneCell.h"
 #import "WTExitLoginBtnCell.h"
+#import "WTPickerView.h"
+#import "WTRequestUtil.h"
+#import "WTAlertUtil.h"
 
 @interface WTUserInfoViewController ()
-
+{
+    WTProfilePhoneItem *itBirthday;
+    WTProfilePhoneItem *itSex;
+}
 @end
 
 @implementation WTUserInfoViewController
@@ -88,19 +94,29 @@
     [section0 addItem:itNickName];
     
     //性别
-    WTProfilePhoneItem *itSex = [[WTProfilePhoneItem alloc] init];
+    itSex = [[WTProfilePhoneItem alloc] init];
     itSex.titleText1 = [[WTLanguageUtil shareInstance] valueForKey:@"userinfo_sex"];
     itSex.titleText2 = sex;
     itSex.icon = @"profile_icon_xingbie";
     itSex.hasArrow = YES;
+    itSex.selectionHandler = ^(WTProfilePhoneItem *item) {
+        [WTStringPickerView showStringPickerWithTitle:@"性别" dataSource:[NSArray arrayWithObjects:@"男",@"女", nil] defaultSelValue:item.titleText2 isAutoSelect:NO resultBlock:^(id selectValue) {
+            [bself updateUserInfo:@"sex" fieldValue:selectValue loginType:1];
+        }];
+    };
     [section0 addItem:itSex];
     
     //生日
-    WTProfilePhoneItem *itBirthday = [[WTProfilePhoneItem alloc] init];
+    itBirthday = [[WTProfilePhoneItem alloc] init];
     itBirthday.titleText1 = [[WTLanguageUtil shareInstance] valueForKey:@"Birthday"];
     itBirthday.titleText2 = birthday;
     itBirthday.icon = @"profile_icon_nianling";
     itBirthday.hasArrow = YES;
+    itBirthday.selectionHandler = ^(WTProfilePhoneItem *item) {
+        [WTDatePickerView showDatePickerWithTitle:@"生日" dateType:UIDatePickerModeDate defaultSelValue:item.titleText2 minDateStr:nil maxDateStr:nil isAutoSelect:NO resultBlock:^(NSString *selectValue) {
+            [bself updateUserInfo:@"birthday" fieldValue:selectValue loginType:1];
+        }];
+    };
     [section0 addItem:itBirthday];
     
     //地址
@@ -117,7 +133,7 @@
     WTExitLoginBtnItem *itExit = [[WTExitLoginBtnItem alloc] init];
     itExit.btnTitle = [[WTLanguageUtil shareInstance] valueForKey:@"my_login_login_out"];
     itExit.btnPress = ^{
-        ;
+
     };
     [section0 addItem:itExit];
     
@@ -128,4 +144,22 @@
     [self.formTable reloadData];
 }
 
+- (void)updateUserInfo:(NSString *)fieldName fieldValue:(NSString *)fieldValue loginType:(int)loginType {
+    NSString *uuid = [WTUtil strRelay:[WTLoginInfo shareInstance].user.id];
+    [WTRequestUtil myInfoUpdateRequest:fieldName fieldValue:fieldValue loginType:loginType userId:uuid success:^(id responseObject) {
+        [WTAlertUtil showAlertToast:[[WTLanguageUtil shareInstance] valueForKey:@"change_success"] messageType:WTAlertToastTypeSuccess];
+        if ([fieldName isEqualToString:@"sex"]) {
+            [WTLoginInfo shareInstance].user.sex = fieldValue;
+            itSex.titleText2 = fieldValue;
+            [itSex reloadRowWithAnimation:UITableViewRowAnimationNone];
+        } else if ([fieldName isEqualToString:@"birthday"]) {
+            [WTLoginInfo shareInstance].user.birthday = fieldValue;
+            itBirthday.titleText2 = fieldValue;
+            [itBirthday reloadRowWithAnimation:UITableViewRowAnimationNone];
+        }
+        [WTLoginInfo writeLoginInfo];
+    } failure:^(NSError *error) {
+        NSLog(@"bbbbb");
+    }];
+}
 @end
